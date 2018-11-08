@@ -8,7 +8,32 @@ module.exports = {
         path : path.resolve(__dirname, "dist")
     },
     devServer : {
-        contentBase : "dist"
+        contentBase : "dist",
+        overlay : true
+    },
+    module: {
+        rules : [
+            {
+                test : /\.css$/,
+                use : [
+                    {loader : "style-loader"},
+                    {loader : "css-loader"}
+                ]
+            },
+            {
+                test : /\.html$/,
+                use : [
+                    {
+                        loader : "file-loader",
+                        options: {
+                            name : "[name].html"
+                        }
+                    },
+                    {loader : "extract-loader"},
+                    {loader : "html-loader"}
+                ]
+            }
+        ]
     }
 }
 

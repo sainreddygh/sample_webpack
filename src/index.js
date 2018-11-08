@@ -1,2 +1,2 @@
-import _ from "lodash";
-alert("I am an alert!")
+import "./main.css";
+import "./index.html";
